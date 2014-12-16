@@ -1,3 +1,155 @@
 html, body {
-  margin: 20px;
+  background-color: #008CB8;
+  font-family: 'Open Sans', sans-serif;
+}
+/*Clearfix class*/
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+
+/*Content container*/
+.sign-in-container{
+  background-color: white;
+  width: 75%;
+  margin: 7% auto;
+}
+/*Common styles*/
+.logo, .sign-in-action {
+  float: right;
+  height: 400px;
+  width: 49%;
+  margin: 20px 0;
+}
+
+
+/*LOGO*/
+.logo {
+  border-right: 1px solid #EEEEEE;
+  position: relative;
+}
+
+.logo-img-container {
+  width: 50%;
+  margin: 0 auto;
+  height: 300px;
+  position: relative;
+  top: 75%;
+  transform: translateY(-50%);
+}
+
+.logo-img-container-two {
+  display: none;
+}
+
+
+/*SIGN IN*/
+.sign-in-action {
+  border-left: 1px solid #EEEEEE;
+}
+
+
+/*Postmark*/
+.postmark-img-container {
+  text-align: right;
+  margin-bottom: 75px;
+}
+
+
+/*Form*/
+.sign-in-form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.sign-in-form-header {
+  font-size: 22px;
+  color: #000000;
+}
+
+.username-input, .password-input {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  color: #000000;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #EEEEEE;
+  padding: 5px;
+}
+
+.call-to-action-options {
+  position: relative;
+  margin-top: 25px;
+  padding-right: 5px;
+  width: 100%;
+}
+
+input[type=submit], .forget-or-sign-up {
+  display: inline-block;
+}
+
+input[type=submit] {
+  padding:5px 15px;
+  background:white;
+  border: 2px solid #0084B2;
+  cursor:pointer;
+  color: #0084B2;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.forget-or-sign-up {
+  font-size: 13px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px 0 0 0;
+}
+
+.forget-or-sign-up > a {
+  font-size: 13px;
+  color: #0084B2;
+  text-decoration: none;
+}
+
+
+/* Media queries */
+@media (max-width: 1120px) {
+  .forget-or-sign-up {
+    position: static;
+  }
+}
+
+@media (max-width: 1000px) {
+  .logo, .sign-in-action {
+    width: 100%;
+    float: none;
+    height: auto;
+    margin: 0 0;
+  }
+
+  .logo {
+
+  }
+
+  .logo-img-container {
+    display: none;
+  }
+
+  .logo-img-container-two {
+    display: block;
+  }
+
+  .sign-in-form {
+    margin: 3%;
+  }
 }

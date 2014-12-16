@@ -1,18 +1,12 @@
-<div class="account-login">
-  <h3>Get going...</h3>
-  <div class="login-form">
-    <div class="account-input">
-      {{input type="text" value=username placeholder='Enter your username...'}}
-    </div>
-    <div class="account-input">
-      {{input type="text" value=password placeholder='Enter your password...'}}
-    </div>
-    <div class="account-button">
-      <button {{action "logIn"}}>Log in</button>
-    </div>
-    <div>
-      {{#link-to 'account.reset'}}Recover password{{/link-to}} or
-      {{#link-to 'account.create'}}Sign up{{/link-to}}
-    </div>
-  </div>
-</div>
+<h2 class="sign-in-form-header">Get going ...</h2>
+<form>
+  {{input type="text" value=username placeholder='Enter your username...' classNames='username-input'}}
+  {{input type="password" value=password placeholder='Enter your password...' classNames='password-input'}}
+
+  <div class="call-to-action-options clearfix">
+    {{input type="submit" value='Log in' action='logIn'}}
+    <p class="forget-or-sign-up">
+      {{#link-to 'account.reset'}}Recover password{{/link-to}} or {{#link-to 'account.create'}}Sign up{{/link-to}}
+    </p>
+  </div> <!-- Call to action options -->
+</form>
