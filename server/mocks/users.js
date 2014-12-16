@@ -9,7 +9,12 @@ module.exports = function(app) {
   });
 
   usersRouter.post('/', function(req, res) {
-    res.status(201).end();
+    res.send({
+      user: {
+        id: req.body.user.id,
+        name: req.body.user.name
+      }
+    });
   });
 
   usersRouter.get('/:id', function(req, res) {
