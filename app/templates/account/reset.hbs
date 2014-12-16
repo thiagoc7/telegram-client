@@ -1,1 +1,11 @@
-{{outlet}}
+<div class="account-login">
+  <h3>Reset password</h3>
+  <div class="reset-form">
+    <div class="account-input">
+      {{input type="text" value=email placeholder='Enter your email...'}}
+    </div>
+    <div class="account-button">
+      <button {{action "resetPassword"}}>Reset password</button>
+    </div>
+  </div>
+</div>
