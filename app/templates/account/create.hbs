@@ -1,0 +1,23 @@
+<div class="account-create">
+  <h3>Create your account</h3>
+  <div class="create-form">
+    <div class="account-input">
+      {{input type="text" value=name placeholder='Enter your name...'}}
+    </div>
+    <div class="account-input">
+      {{input type="text" value=username placeholder='Enter your username...'}}
+    </div>
+    <div class="account-input">
+      {{input type="text" value=email placeholder='Enter your email...'}}
+    </div>
+    <div class="account-input">
+      {{input type="text" value=password placeholder='Enter your password...'}}
+    </div>
+    <div class="account-button">
+      <button {{action "signUp"}}>Sign Up</button>
+    </div>
+    <div>
+      {{#link-to 'account.login'}}Login{{/link-to}}
+    </div>
+  </div>
+</div>
