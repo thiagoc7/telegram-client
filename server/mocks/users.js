@@ -9,23 +9,40 @@ module.exports = function(app) {
   });
 
   usersRouter.post('/', function(req, res) {
-    res.send({
-      user: {
-        id: req.body.user.id,
-        name: req.body.user.name
-      }
-    });
+    if (req.body.user.operation === 'create') {
+      res.send({
+        user: {
+          id: req.body.user.id,
+          name: req.body.user.name
+        }
+      });
+    } else {
+      // TODO find the user
+      res.send({
+        user: {
+          id: req.body.user.id,
+          name: req.body.user.name
+        }
+      });
+    }
   });
 
   usersRouter.get('/:id', function(req, res) {
     var users = {
       'andreisoare': {
         id: 'andreisoare',
-        name: 'Andrei Soare'
+        name: 'Andrei Soare',
+        password: 'andreisoare'
       },
       'vladberteanu': {
         id: 'vladberteanu',
-        name: 'Vlad Berteanu'
+        name: 'Vlad Berteanu',
+        password: 'vladberteanu'
+      },
+      'th': {
+        id: 'th',
+        name: 'Thiago Correa',
+        password: 'th'
       }
     };
 

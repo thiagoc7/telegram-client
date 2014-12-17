@@ -107,6 +107,16 @@ input[type=submit] {
   font-size: 13px;
 }
 
+.input-button {
+  padding:5px 15px;
+  background:white;
+  border: 2px solid #0084B2;
+  cursor:pointer;
+  color: #0084B2;
+  font-weight: bold;
+  font-size: 13px;
+}
+
 .forget-or-sign-up {
   font-size: 13px;
   position: absolute;
@@ -121,6 +131,9 @@ input[type=submit] {
   text-decoration: none;
 }
 
+.form-error {
+  color: #710909;
+}
 
 /* Media queries */
 @media (max-width: 1120px) {

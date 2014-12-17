@@ -1,1 +1,12 @@
-{{outlet}}
+<div class="navbar">
+  <div class="home">
+    {{#link-to 'user.dash'}}Home{{/link-to}}
+  </div>
+  <div class="user">
+      {{#if userAuthenticated}}
+        {{#link-to 'user'}}{{userProfile}}{{/link-to}}
+      {{/if}}
+  </div>
+</div>
+
+<div>{{outlet}}</div>

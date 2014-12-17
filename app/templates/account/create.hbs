@@ -1,4 +1,7 @@
 <h2 class="sign-in-form-header">Create your account</h2>
+<div class="form-error">
+  {{errors}}
+</div>
 <form>
   {{input type="text" value=name placeholder='Enter your name...' classNames='username-input'}}
   {{input type="text" value=username placeholder='Enter your username...' classNames='username-input'}}
@@ -6,7 +9,9 @@
   {{input type="password" value=password placeholder='Enter your password...' classNames='password-input'}}
 
   <div class="call-to-action-options clearfix">
-    {{input type="submit" value='Sign up' action='signUp'}}
+    <button {{action 'signUp'}} class="input-button">
+      Sign up
+    </button>
     <p class="forget-or-sign-up">
       {{#link-to 'account.login'}}Login{{/link-to}}
     </p>

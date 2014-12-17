@@ -1,21 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  name: '',
   username: '',
-  email: '',
   password: '',
 
   errors: 'no erros',
 
   actions: {
-    signUp: function () {
+    logIn: function () {
       var user = this.store.createRecord('user', {
-        name: this.get('name'),
         id: this.get('username'),
-        email: this.get('email'),
         password: this.get('password'),
-        operation: 'create'
+        operation: 'login'
       });
       var controller = this;
       user.save().then(function () {
