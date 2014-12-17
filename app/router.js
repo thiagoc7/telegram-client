@@ -17,9 +17,9 @@ Router.map(function() {
     this.route('posts', { path: "/" });
     this.route('following');
     this.route('followers');
-    this.route('dash');
   });
 
+  this.route('dash');
 });
 
 export default Router;

@@ -6,7 +6,16 @@ export default Ember.Controller.extend({
 
   actions: {
     resetPassword: function () {
-      this.transitionToRoute('account.check');
+      var user = this.store.createRecord('user', {
+        email: this.get('email'),
+        operation: 'email'
+      });
+      var controller = this;
+      user.save().then(function () {
+        controller.transitionToRoute('account.check');
+      }, function(error) {
+        controller.set('errors', error.responseText);
+      });
     }
   }
 });

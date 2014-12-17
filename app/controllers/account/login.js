@@ -14,9 +14,13 @@ export default Ember.Controller.extend({
         operation: 'login'
       });
       var controller = this;
+
       user.save().then(function () {
-        controller.transitionToRoute('user.dash', user);
+        controller.transitionToRoute('dash');
+      }, function(error) {
+        controller.set('errors', error.responseText);
       });
+
       this.set('session.user', user);
     }
   }
