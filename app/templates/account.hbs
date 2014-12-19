@@ -1,27 +1,14 @@
-<div class="sign-in-container clearfix">
-
-  <div class="sign-in-action">
-
-    <div class="postmark-img-container">
-      <img src="images/postmark.png">
+<div class="auth">
+  <div class="rect clearfix">
+    <div class="left">
+      <img class="absolute-center-xy" src="images/telegram-logo.png"/>
     </div>
-
-    <div class="sign-in-form">
-
-      <div class="logo-img-container-two">
-        <img src="images/telegram-logo.png">
+    <div class="right">
+      <img class="postmark" src="images/postmark.png"/>
+      <div class="clear"></div>
+      <div class="content">
+        {{outlet}}
       </div>
-
-      {{outlet}}
-
-    </div> <!-- Sign in form -->
-
-  </div> <!-- Sign in action -->
-
-  <div class="logo">
-    <div class="logo-img-container">
-      <img src="images/telegram-logo.png">
     </div>
-  </div> <!-- Logo -->
-
+  </div>
 </div>

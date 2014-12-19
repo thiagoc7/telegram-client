@@ -1,19 +1,20 @@
-<h2 class="sign-in-form-header">Create your account</h2>
+<div class="title">
+  Create your account
+</div>
 <div class="form-error">
   {{errors}}
 </div>
-<form>
-  {{input type="text" value=name placeholder='Enter your name...' classNames='username-input'}}
-  {{input type="text" value=username placeholder='Enter your username...' classNames='username-input'}}
-  {{input type="text" value=email placeholder='Enter your email...' classNames='username-input'}}
-  {{input type="password" value=password placeholder='Enter your password...' classNames='password-input'}}
-
-  <div class="call-to-action-options clearfix">
-    <button {{action 'signUp'}} class="input-button">
+<form class="auth-form">
+  {{input type="text" value=name placeholder='Enter your name...' classNames='auth-input'}}
+  {{input type="text" value=username placeholder='Enter your username...' classNames='auth-input'}}
+  {{input type="text" value=email placeholder='Enter your email...' classNames='auth-input'}}
+  {{input type="password" value=password placeholder='Enter your password...' classNames='auth-input'}}
+  <div class="form-footer clearfix">
+    <button {{action 'signUp'}} class="blue-btn submit">
       Sign up
     </button>
-    <p class="forget-or-sign-up">
-      {{#link-to 'account.login'}}Login{{/link-to}}
-    </p>
-  </div> <!-- Call to action options -->
+    <div class="alternatives">
+      {{#link-to 'account.login' classNames='blue-link'}}Login{{/link-to}}
+    </div>
+  </div>
 </form>

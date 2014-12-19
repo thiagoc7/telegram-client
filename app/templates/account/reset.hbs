@@ -1,13 +1,14 @@
-<h2 class="sign-in-form-header">Reset password</h2>
+<div class="title">
+  Reset password
+</div>
 <div class="form-error">
   {{errors}}
 </div>
-<form>
-  {{input type="text" value=email placeholder='Enter your email...' classNames='username-input'}}
-
-  <div class="call-to-action-options clearfix">
-    <button {{action 'resetPassword'}} class="input-button">
+<form class="auth-form">
+  {{input type="text" value=email placeholder='Enter your email...' classNames='auth-input'}}
+  <div class="form-footer clearfix">
+    <button {{action 'resetPassword'}} class="blue-btn submit">
       Reset password
     </button>
-  </div> <!-- Call to action options -->
+  </div>
 </form>

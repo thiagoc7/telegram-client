@@ -1,10 +1,22 @@
-<div class="navbar">
-  <div class="home">
-    {{#link-to 'dash'}}Home{{/link-to}}
+<div class="nav-bar clearfix">
+  <div class="third">
+    <div class="home relative-center-y">
+      <img class="icon" src="images/icon-home.png"/>
+      {{#link-to 'dash' classNames='title dark-gray-link'}}Home{{/link-to}}
+    </div>
   </div>
-  <div class="user">
-    {{#if userAuthenticated}}
-      {{#link-to 'user' userProfile}}{{userProfile.name}}{{/link-to}}
-    {{/if}}
+
+  <div class="third">
+    <img class="relative-center-xy" src="images/telegram-logo-small.png"/>
+  </div>
+
+  <div class="third">
+    <div class="user relative-center-y">
+      {{#if userAuthenticated}}
+        <a class="avatar link"><img src="images/avatar-turquoise.png"/></a>
+        {{#link-to 'user' userProfile classNames='name dark-gray-link'}}{{userProfile.name}}{{/link-to}}
+      {{/if}}
+      <a class="logout dark-gray-link">Log out</a>
+    </div>
   </div>
 </div>

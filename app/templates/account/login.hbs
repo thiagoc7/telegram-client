@@ -1,17 +1,20 @@
-<h2 class="sign-in-form-header">Get going ...</h2>
+<div class="title">
+  Get going ...
+</div>
 <div class="form-error">
   {{errors}}
 </div>
-<form>
-  {{input type="text" value=username placeholder='Enter your username...' classNames='username-input'}}
-  {{input type="password" value=password placeholder='Enter your password...' classNames='password-input'}}
-
-  <div class="call-to-action-options clearfix">
-    <button {{action 'logIn'}} class="input-button">
+<form class="auth-form">
+  {{input type="text" value=username placeholder='Enter your username...' classNames='auth-input'}}
+  {{input type="password" value=password placeholder='Enter your password...' classNames='auth-input'}}
+  <div class="form-footer clearfix">
+    <button {{action 'logIn'}} class="blue-btn submit">
       Log in
     </button>
-    <p class="forget-or-sign-up">
-      {{#link-to 'account.reset'}}Recover password{{/link-to}} or {{#link-to 'account.create'}}Sign up{{/link-to}}
-    </p>
-  </div> <!-- Call to action options -->
+    <div class="alternatives">
+      {{#link-to 'account.reset' classNames='blue-link'}}Recover password{{/link-to}}
+      or
+      {{#link-to 'account.create' classNames='blue-link'}}Sign up{{/link-to}}
+    </div>
+  </div>
 </form>
