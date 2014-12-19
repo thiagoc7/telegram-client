@@ -22,13 +22,13 @@ module.exports = function(app) {
   });
 
   postsRouter.post('/', function(req, res) {
-    if (req.body.post.body.body === '') {
+    if (req.body.post.body === '') {
       res.status(404).send("no body");
     } else {
       res.send({
         post: {
-          body: req.body.post.body.body,
-          author: req.body.post.body.author
+          body: req.body.post.body,
+          author: req.body.post.author
         }
       });
     }

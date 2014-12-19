@@ -10,7 +10,7 @@ export default Ember.Component.extend({
     },
 
     confirmRepost: function() {
-      this.sendAction('repost', this.get('model'));
+      this.sendAction('action', this.get('post'));
       this.toggleProperty('isReposting');
     },
 

@@ -29,8 +29,20 @@ export default Ember.ArrayController.extend({
       });
     },
 
-    repost: function() {
-      //
+    repost: function(repost) {
+      var post = this.store.createRecord('post', {
+        author: this.get('userSession.user'),
+        body: repost.body,
+        createdAt: new Date(),
+        repostedFrom: repost
+      });
+
+      var controller = this;
+      post.save().then(function () {
+        // ???
+      }, function(error) {
+        controller.set('errors', error.responseText);
+      });
     },
 
     deletePost: function() {
