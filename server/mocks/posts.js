@@ -22,7 +22,16 @@ module.exports = function(app) {
   });
 
   postsRouter.post('/', function(req, res) {
-    res.status(201).end();
+    if (req.body.post.body.body === '') {
+      res.status(404).send("no body");
+    } else {
+      res.send({
+        post: {
+          body: req.body.post.body.body,
+          author: req.body.post.body.author
+        }
+      });
+    }
   });
 
   postsRouter.get('/:id', function(req, res) {

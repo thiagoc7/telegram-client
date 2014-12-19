@@ -7,18 +7,21 @@ module.exports = function(app) {
       id: 'andreisoare',
       name: 'Andrei Soare',
       email: 'andrei@email.com',
+      avatar: 'images/avatar-red.png',
       password: 'andreisoare'
     },
     'vladberteanu': {
       id: 'vladberteanu',
       name: 'Vlad Berteanu',
       email: 'vlad@email.com',
+      avatar: 'images/avatar-turquoise.png',
       password: 'vladberteanu'
     },
     'th': {
       id: 'th',
       name: 'Thiago Correa',
       email: 'th@email.com',
+      avatar: 'images/avatar-blue.png',
       password: 'th'
     }
   };

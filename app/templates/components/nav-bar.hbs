@@ -13,7 +13,7 @@
   <div class="third">
     <div class="user relative-center-y">
       {{#if userAuthenticated}}
-        <a class="avatar link"><img src="images/avatar-turquoise.png"/></a>
+        <a class="avatar link"><img {{bind-attr src=userProfile.avatar}}></a>
         {{#link-to 'user' userProfile classNames='name dark-gray-link'}}{{userProfile.name}}{{/link-to}}
       {{/if}}
       <a class="logout dark-gray-link">Log out</a>

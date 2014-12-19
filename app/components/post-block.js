@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   reposted: false, //todo bind it
+  repostedBy: 'thiago', //todo find name of last repost author
 
   actions: {
     toggleRepost: function() {
@@ -9,8 +10,12 @@ export default Ember.Component.extend({
     },
 
     confirmRepost: function() {
-      // TODO repost stuff
+      this.sendAction('repost', this.get('model'));
       this.toggleProperty('isReposting');
+    },
+
+    deleteRepost: function() {
+      this.sendAction('deletePost', this.get('model'));
     }
   }
 });
