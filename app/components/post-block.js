@@ -1,8 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  reposted: false, //todo bind it
-  repostedBy: 'thiago', //todo find name of last repost author
+  authorDisplay: function () {
+    if (this.get('post.repostedFrom.content') === null) {
+      return this.get('post');
+    } else {
+      debugger;
+      return this.get('post.respostedFrom.content');
+    }
+  }.property('post.respostedFrom'),
 
   actions: {
     toggleRepost: function() {
@@ -14,8 +20,8 @@ export default Ember.Component.extend({
       this.toggleProperty('isReposting');
     },
 
-    deleteRepost: function() {
-      this.sendAction('deletePost', this.get('model'));
+    deletePost: function() {
+      this.sendAction('deletePost', this.get('post'));
     }
   }
 });

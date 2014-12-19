@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   email: '',
   password: '',
 
-  errors: 'no erros',
+  errors: '',
 
   actions: {
     signUp: function () {

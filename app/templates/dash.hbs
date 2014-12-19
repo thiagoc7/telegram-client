@@ -4,7 +4,7 @@
     {{textarea placeholder="What's happening?" autofocus="autofocus" value=body}}
     <div class="footer clearfix">
       <div class="characters-left">{{characters}} characters</div>
-      <button {{action 'savePost' null}} class="publish dark-gray-btn">
+      <button {{action 'savePost'}} class="publish dark-gray-btn">
         Publish
       </button>
     </div>
@@ -14,7 +14,7 @@
 
   <div class="posts-list">
     {{#each post in controller}}
-      {{post-block post=post action="repost"}}
+      {{post-block post=post action="repost" deletePost='deletePost'}}
     {{/each}}
   </div>
 

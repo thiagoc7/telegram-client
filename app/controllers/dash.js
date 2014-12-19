@@ -32,7 +32,7 @@ export default Ember.ArrayController.extend({
     repost: function(repost) {
       var post = this.store.createRecord('post', {
         author: this.get('userSession.user'),
-        body: repost.body,
+        body: repost.get('body'),
         createdAt: new Date(),
         repostedFrom: repost
       });
@@ -45,8 +45,8 @@ export default Ember.ArrayController.extend({
       });
     },
 
-    deletePost: function() {
-      //
+    deletePost: function(post) {
+      post.destroyRecord();
     }
   }
 

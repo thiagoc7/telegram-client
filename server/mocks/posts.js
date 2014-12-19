@@ -2,23 +2,36 @@ module.exports = function(app) {
   var express = require('express');
   var postsRouter = express.Router();
 
+  var POSTS = {
+    "posts": [
+      {
+        id: "p1",
+        author: "andreisoare",
+        body: "post 1 body",
+        createdAt: new Date('2014-12-08T09:30:26')
+      },
+      {
+        id: "p2",
+        author: "vladberteanu",
+        body: "post 2 body",
+        createdAt: new Date('2013-02-08T09:30:26')
+      },
+      {
+        id: "p3",
+        author: "th",
+        body: "post 2 body",
+        createdAt: new Date('2014-02-08T09:30:26'),
+        repostedFrom: 'p2'
+      }
+    ]
+  };
+
   postsRouter.get('/', function(req, res) {
-    res.send({
-      "posts": [
-        {
-          id: "p1",
-          author: "andreisoare",
-          body: "post 1 body",
-          createdAt: new Date('2014-12-08T09:30:26')
-        },
-        {
-          id: "p2",
-          author: "vladberteanu",
-          body: "post 2 body",
-          createdAt: new Date('2013-02-08T09:30:26')
-        }
-      ]
-    });
+    if (req.params.dashboard) {
+      res.send(POSTS);
+    } else {
+      res.send(POSTS);
+    }
   });
 
   postsRouter.post('/', function(req, res) {

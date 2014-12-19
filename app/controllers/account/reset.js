@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   email: '',
-  errors: 'no erros',
+  errors: '',
 
   actions: {
     resetPassword: function () {

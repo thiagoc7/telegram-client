@@ -1,33 +1,3 @@
-<div class="post-block clearfix">
-
-  {{#if reposted}}
-    <div class="repost-header clearfix">
-      <img class="icon" src="images/icon-retweet.png"/>
-      <div class="author">Reposted by <a class="dark-gray-link">{{repostedBy}}</a></div>
-    </div>
-  {{/if}}
-
-  <a class="avatar link"><img {{bind-attr src=post.author.avatar}}></a>
-
-  <div class="content">
-    <div class="author"><a class="link">{{post.author.name}}<a></div>
-    <div class="text">{{post.body}}</div>
-    <div class="footer">
-      <span>{{ago post.createdAt}}</span>
-      <span class="middot">&middot;</span>
-
-      {{#if reposted}}
-        <span>Reposted</span>
-      {{else}}
-        <a class="blue-link" {{action 'toggleRepost'}}>Repost</a>
-      {{/if}}
-
-      <span class="middot">&middot;</span>
-      <a class="blue-link" {{action 'deleteRepost'}}>Delete</a>
-    </div>
-  </div>
-</div>
-
 {{#if isReposting}}
 
   <div class="post-block clearfix confirm-repost">
@@ -39,6 +9,38 @@
         <a class="blue-link" {{action 'confirmRepost'}}>Yes</a>
         <span class="middot">&middot;</span>
         <a class="blue-link" {{action 'toggleRepost'}}>No</a>
+      </div>
+    </div>
+  </div>
+
+{{else}}
+
+  <div class="post-block clearfix">
+
+    {{#if post.repostedFrom}}
+      <div class="repost-header clearfix">
+        <img class="icon" src="images/icon-retweet.png"/>
+        <div class="author">Reposted by <a class="dark-gray-link">{{post.author.name}}</a></div>
+      </div>
+    {{/if}}
+
+    <a class="avatar link"><img {{bind-attr src=post.author.avatar}}></a>
+
+    <div class="content">
+      <div class="author"><a class="link">{{authorDisplay.author.name}}<a></div>
+      <div class="text">{{post.body}} {{reposted}}</div>
+      <div class="footer">
+        <span>{{ago post.createdAt}}</span>
+        <span class="middot">&middot;</span>
+
+        {{#if post.repostedFrom}}
+          <span>Reposted</span>
+        {{else}}
+          <a class="blue-link" {{action 'toggleRepost'}}>Repost</a>
+        {{/if}}
+
+        <span class="middot">&middot;</span>
+        <a class="blue-link" {{action 'deletePost'}}>Delete</a>
       </div>
     </div>
   </div>

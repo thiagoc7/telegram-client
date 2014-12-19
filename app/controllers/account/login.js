@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   username: '',
   password: '',
 
-  errors: 'no erros',
+  errors: '',
 
   actions: {
     logIn: function () {
