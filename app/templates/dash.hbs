@@ -11,7 +11,9 @@
   <div class="title">Latest posts</div>
 
   <div class="posts-list">
-    {{post-block}}
+    {{#each post in controller}}
+      {{post-block post=post}}
+    {{/each}}
   </div>
 
   <div class="title">Original</div>
