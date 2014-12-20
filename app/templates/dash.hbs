@@ -14,7 +14,7 @@
 
   <div class="posts-list">
     {{#each post in controller}}
-      {{post-block post=post action="repost" deletePost='deletePost'}}
+      {{post-block post=post repost="repost" deletePost='deletePost'}}
     {{/each}}
   </div>
 

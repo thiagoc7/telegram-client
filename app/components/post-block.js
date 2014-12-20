@@ -2,13 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   authorDisplay: function () {
-    if (this.get('post.repostedFrom.content') === null) {
-      return this.get('post');
+    var post = this.get('post');
+    var repost = this.get('post.repostedFrom');
+    if (repost.get('content')) {
+      return repost.get('author');
     } else {
-      debugger;
-      return this.get('post.respostedFrom.content');
+      return post.get('author');
     }
-  }.property('post.respostedFrom'),
+  }.property('post.author', 'post.repostedFrom.author'),
 
   actions: {
     toggleRepost: function() {
@@ -16,7 +17,7 @@ export default Ember.Component.extend({
     },
 
     confirmRepost: function() {
-      this.sendAction('action', this.get('post'));
+      this.sendAction('repost', this.get('post'));
       this.toggleProperty('isReposting');
     },
 

@@ -8,13 +8,15 @@ module.exports = function(app) {
         id: "p1",
         author: "andreisoare",
         body: "post 1 body",
-        createdAt: new Date('2014-12-08T09:30:26')
+        createdAt: new Date('2014-12-08T09:30:26'),
+        repostedFrom: null
       },
       {
         id: "p2",
         author: "vladberteanu",
         body: "post 2 body",
-        createdAt: new Date('2013-02-08T09:30:26')
+        createdAt: new Date('2013-02-08T09:30:26'),
+        repostedFrom: null
       },
       {
         id: "p3",
