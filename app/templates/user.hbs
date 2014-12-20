@@ -1,3 +1,19 @@
 {{nav-bar session=userSession}}
 
-<div>{{outlet}}</div>
+<div class="profile">
+  <div class="user-header">
+    <img class="avatar" {{bind-attr src=model.avatar}}>
+    <div class="name">{{model.name}}</div>
+    <div class="username">@{{model.id}}</div>
+    <button class="blue-btn follow" {{action 'follow' model}}>Follow</button>
+  </div>
+
+  <div class="tab-header">
+    {{#link-to 'user.posts' model classNames='tab'}}Posts{{/link-to}}
+    {{#link-to 'user.following' model classNames='tab'}}Following{{/link-to}}
+    {{#link-to 'user.followers' model classNames='tab'}}Followers{{/link-to}}
+  </div>
+
+  {{outlet}}
+
+</div>
