@@ -1,37 +1,5 @@
 <div class="users-list">
-  <div class="user-block clearfix">
-    <a class="avatar link">
-      <img src="img/avatar-red.png"/>
-    </a>
-    <div class="name">
-      <a class="link">John Maeda</a>
-    </div>
-    <button class="blue-btn follow relative-center-y">
-      Follow
-    </button>
-  </div>
-
-  <div class="user-block clearfix">
-    <a class="avatar link">
-      <img src="img/avatar-yellow.png"/>
-    </a>
-    <div class="name">
-      <a class="link">Clarke Wolfe</a>
-    </div>
-    <button class="blue-btn follow relative-center-y">
-      Unfollow
-    </button>
-  </div>
-
-  <div class="user-block clearfix">
-    <a class="avatar link">
-      <img src="img/avatar-green.png"/>
-    </a>
-    <div class="name">
-      <a class="link">Fast Company</a>
-    </div>
-    <button class="blue-btn follow relative-center-y">
-      Follow
-    </button>
-  </div>
+  {{#each user in controller}}
+    {{follow-user user=user follow='follow' unfollow='unfollow'}}
+  {{/each}}
 </div>

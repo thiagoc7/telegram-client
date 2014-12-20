@@ -1,0 +1,9 @@
+<a class="avatar link">
+  <img {{bind-attr src=user.avatar}}>
+</a>
+<div class="name">
+  {{#link-to 'user.posts' user classNames='link'}}{{user.name}}{{/link-to}}
+</div>
+<button class="blue-btn follow relative-center-y">
+  Follow
+</button>
