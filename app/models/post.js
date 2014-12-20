@@ -4,5 +4,5 @@ export default DS.Model.extend({
   author: DS.belongsTo('user', {async: true}),
   body: DS.attr('string'),
   createdAt: DS.attr('date'),
-  repostedFrom: DS.belongsTo('post', {async: true})
+  repostedFrom: DS.belongsTo('post', {async: true, inverse: null})
 });
