@@ -7,11 +7,13 @@ export default Ember.Route.extend({
 
   actions: {
     follow: function (user) {
-      return user; //follow stuff
+      user.set('followed', true);
+      user.save();
     },
 
     unfollow: function (user) {
-      return user; //follow stuff
+      user.set('followed', false);
+      user.save();
     }
   }
 });

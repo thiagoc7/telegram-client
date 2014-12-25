@@ -1,15 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
+  needs: "application",
+  userSession: Ember.computed.alias("controllers.application.userSession"),
+
   //queryParams: ['dashboard'],
   //dashboard: true,
 
   sortProperties: ['createdAt'],
   sortAscending: false,
-
-  userSession: function() {
-    return this.get('session');
-  }.property('session'),
 
   body: '',
   characters: function() {

@@ -26,6 +26,86 @@ module.exports = function(app) {
     }
   };
 
+  var USERS_ALL = {
+    "users": [
+      {
+        id: 'andreisoare',
+        name: 'Andrei Soare',
+        email: 'andrei@email.com',
+        avatar: 'images/avatar-red.png',
+        followed: true
+      },
+      {
+        id: 'vladberteanu',
+        name: 'Vlad Berteanu',
+        email: 'vlad@email.com',
+        avatar: 'images/avatar-turquoise.png',
+        followed: false
+      },
+      {
+        id: 'th',
+        name: 'Thiago Correa',
+        email: 'th@email.com',
+        avatar: 'images/avatar-blue.png',
+        followed: false
+      },
+      {
+        id: 'th1',
+        name: 'Thiago 1',
+        email: 'th1@email.com',
+        avatar: 'images/avatar-red.png',
+        followed: true
+      },
+      {
+        id: 'th2',
+        name: 'Thiago 2',
+        email: 'th1@email.com',
+        avatar: 'images/avatar-blue.png',
+        followed: false
+      },
+      {
+        id: 'th3',
+        name: 'Thiago 3',
+        email: 'th1@email.com',
+        avatar: 'images/avatar-green.png',
+        followed: true
+      }
+    ]
+  };
+
+  var FOLLOWING = {
+    "users": [
+      {
+        id: 'andreisoare',
+        name: 'Andrei Soare',
+        email: 'andrei@email.com',
+        avatar: 'images/avatar-red.png',
+        followed: true
+      },
+      {
+        id: 'vladberteanu',
+        name: 'Vlad Berteanu',
+        email: 'vlad@email.com',
+        avatar: 'images/avatar-turquoise.png',
+        followed: true
+      },
+      {
+        id: 'th',
+        name: 'Thiago Correa',
+        email: 'th@email.com',
+        avatar: 'images/avatar-blue.png',
+        followed: true
+      },
+      {
+        id: 'th1',
+        name: 'Thiago 1',
+        email: 'th1@email.com',
+        avatar: 'images/avatar-red.png',
+        followed: true
+      }
+    ]
+  };
+
   var findUserByEmail = function (email) {
     var ids = Object.keys(USERS);
     var filter = ids.filter(function(id) {
@@ -39,9 +119,13 @@ module.exports = function(app) {
   };
 
   usersRouter.get('/', function(req, res) {
-    res.send({
-      "users": []
-    });
+    if (req.query.following) {
+      res.send(USERS_ALL);
+    } else if (req.query.followed) {
+      res.send(FOLLOWING);
+    } else {
+      res.send(USERS_ALL);
+    }
   });
 
   usersRouter.post('/', function(req, res) {

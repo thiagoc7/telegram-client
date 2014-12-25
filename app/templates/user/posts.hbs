@@ -1,5 +1,5 @@
 <div class="posts-list">
   {{#each post in controller}}
-    {{post-block post=post deletePost='deletePost'}}
+    {{post-block post=post deletePost='deletePost' currentUser=userSession.user}}
   {{/each}}
 </div>

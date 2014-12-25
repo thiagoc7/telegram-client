@@ -5,7 +5,18 @@
   <div class="name">
     {{#link-to 'user.posts' user classNames='link'}}{{user.name}}{{/link-to}}
   </div>
-  <button class="blue-btn follow relative-center-y">
-    Follow
-  </button>
+
+  {{#if user.followed}}
+
+    <button {{action 'unfollow'}} class="blue-btn follow relative-center-y">
+      Unfollow
+    </button>
+
+  {{else}}
+
+    <button {{action 'follow'}} class="blue-btn follow relative-center-y">
+      Follow
+    </button>
+
+  {{/if}}
 </div>
