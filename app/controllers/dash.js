@@ -1,12 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
+  //queryParams: ['dashboard'],
+  //dashboard: true,
+
+  sortProperties: ['createdAt'],
+  sortAscending: false,
+
   userSession: function() {
     return this.get('session');
   }.property('session'),
 
   body: '',
-  erros: '',
   characters: function() {
     var lenght = this.get('body').length;
     return (140 - lenght);
@@ -14,7 +19,9 @@ export default Ember.ArrayController.extend({
 
   actions: {
     savePost: function () {
-      if (this.get('characters') === 140) { return false; }
+      if (this.get('characters') === 140) {
+        return false;
+      }
       var post = this.store.createRecord('post', {
         author: this.get('userSession.user'),
         body: this.get('body'),
@@ -24,30 +31,10 @@ export default Ember.ArrayController.extend({
       var controller = this;
       post.save().then(function () {
         controller.set('body', '');
-      }, function(error) {
+      }, function (error) {
         controller.set('errors', error.responseText);
+        // TODO send a notify
       });
-    },
-
-    repost: function(repost) {
-      var post = this.store.createRecord('post', {
-        author: this.get('userSession.user'),
-        body: repost.get('body'),
-        createdAt: new Date(),
-        repostedFrom: repost
-      });
-
-      var controller = this;
-      post.save().then(function () {
-        // ???
-      }, function(error) {
-        controller.set('errors', error.responseText);
-      });
-    },
-
-    deletePost: function(post) {
-      post.destroyRecord();
     }
   }
-
 });

@@ -24,12 +24,19 @@ module.exports = function(app) {
         body: "post 2 body",
         createdAt: new Date('2014-02-08T09:30:26'),
         repostedFrom: 'p2'
+      },
+      {
+        id: "p4",
+        author: "th",
+        body: "uhuhuh",
+        createdAt: new Date('2014-02-08T09:30:26'),
+        repostedFrom: null
       }
     ]
   };
 
   postsRouter.get('/', function(req, res) {
-    if (req.params.dashboard) {
+    if (req.query.dashboard) {
       res.send(POSTS);
     } else {
       res.send(POSTS);

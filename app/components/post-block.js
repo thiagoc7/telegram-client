@@ -11,6 +11,10 @@ export default Ember.Component.extend({
     }
   }.property('post.author', 'post.repostedFrom.author'),
 
+  owned: function () {
+    return (this.get('currentUser.id') === this.get('post.author.id'));
+  }.property('currentUser', 'post.author'),
+
   actions: {
     toggleRepost: function() {
       this.toggleProperty('isReposting');

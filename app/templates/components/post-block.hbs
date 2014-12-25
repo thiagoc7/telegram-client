@@ -39,8 +39,11 @@
           <a class="blue-link" {{action 'toggleRepost'}}>Repost</a>
         {{/if}}
 
-        <span class="middot">&middot;</span>
-        <a class="blue-link" {{action 'deletePost'}}>Delete</a>
+        {{#if owned}}
+          <span class="middot">&middot;</span>
+          <a class="blue-link" {{action 'deletePost'}}>Delete</a>
+        {{/if}}
+
       </div>
     </div>
   </div>
