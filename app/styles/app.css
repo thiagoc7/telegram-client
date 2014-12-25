@@ -413,3 +413,23 @@ body {
   font-size: 20px;
   border-bottom: 3px solid #178db6;
 }
+
+/*notify*/
+.notify {
+  height: auto;
+  padding: 0px;
+  border-bottom: #1c78b6;
+  background: rgba(23, 141, 182, 0.90);
+  box-shadow: 0px 0px 2px rgba(0,0,0,0.35);
+  text-align: center;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  text-shadow: 1px 1px 0px #999;
+  /*display: none;*/
+}
+
+.notify-msn { padding: 10px; }
+.notify-error { padding: 10px; background: rgba(182, 59, 17, 0.90);}

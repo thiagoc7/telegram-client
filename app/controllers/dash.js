@@ -29,10 +29,10 @@ export default Ember.ArrayController.extend({
 
       var controller = this;
       post.save().then(function () {
+        controller.notify.success('Saved!');
         controller.set('body', '');
       }, function (error) {
-        controller.set('errors', error.responseText);
-        // TODO send a notify
+        controller.notify.warning(error.responseText);
       });
     }
   }

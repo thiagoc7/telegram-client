@@ -11,17 +11,17 @@ export default Ember.Route.extend({
         repostedFrom: repost
       });
 
-      var controller = this;
+      var route = this;
       post.save().then(function () {
-        // ???
+        route.notify.success('Reposted!');
       }, function(error) {
-        controller.set('errors', error.responseText);
-          //TODO implement here this action, and send error up
+        route.notify.warning(error.responseText);
       });
     },
 
     deletePost: function(post) {
       post.destroyRecord();
+      this.notify.warning('Deleted');
     }
   }
 });
