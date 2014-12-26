@@ -21,7 +21,7 @@ module.exports = function(app) {
       id: 'th',
       name: 'Thiago Correa',
       email: 'th@email.com',
-      avatar: 'a3',
+      avatar: 'a6',
       password: 'th'
     }
   };

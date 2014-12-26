@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  avatars: function() {
+    return this.store.find('avatar');
+  }.property('model'),
 
   actions: {
     close: function() {
