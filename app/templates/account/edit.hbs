@@ -1,0 +1,17 @@
+{{#modal-popup action="close"}}
+  <div class="title">
+    Edit your account
+  </div>
+  <form class="auth-form">
+    {{input type="text" value=model.name classNames='auth-input'}}
+    <div class="form-footer clearfix">
+      <button {{action 'updateUser'}} class="blue-btn submit">
+        Update
+      </button>
+      <div class="alternatives">
+        <a href="#" {{action "close"}} class="blue-link">Cancel</a>
+      </div>
+    </div>
+  </form>
+{{/modal-popup}}
+

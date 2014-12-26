@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('login');
     this.route('check');
     this.route('reset');
+    this.route('edit', { path: "/edit/:user_id" });
   });
 
   this.resource('user', { path: "/user/:user_id" }, function () {

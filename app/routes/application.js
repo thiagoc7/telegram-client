@@ -24,11 +24,28 @@ export default Ember.Route.extend({
       this.notify.warning('Deleted');
     },
 
+    // spinner
     loading: function() {
       var controller = this.controllerFor('application');
       controller.spinnerService.startLoading();
       this.router.one('didTransition', function() {
         controller.spinnerService.finishLoading();
+      });
+    },
+
+    // modal
+    openModal: function(modalName, model) {
+      this.controllerFor(modalName).set('model', model);
+      return this.render(modalName, {
+        into: 'application',
+        outlet: 'modal'
+      });
+    },
+
+    closeModal: function() {
+      return this.disconnectOutlet({
+        outlet: 'modal',
+        parentView: 'application'
       });
     }
   }

@@ -479,3 +479,8 @@ body {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/*editing modal*/
+.overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+}

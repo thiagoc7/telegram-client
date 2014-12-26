@@ -7,6 +7,12 @@ export default Ember.Component.extend({
 
   userAuthenticated: function() {
     return this.get('session.isAuthenticated');
-  }.property('session')
+  }.property('session'),
+
+  actions: {
+    openModal: function (route, user) {
+      return this.sendAction('action', route, user);
+    }
+  }
 
 });
