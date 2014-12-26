@@ -7,21 +7,21 @@ module.exports = function(app) {
       id: 'andreisoare',
       name: 'Andrei Soare',
       email: 'andrei@email.com',
-      avatar: 'images/avatar-red.png',
+      avatar: 'a1',
       password: 'andreisoare'
     },
     'vladberteanu': {
       id: 'vladberteanu',
       name: 'Vlad Berteanu',
       email: 'vlad@email.com',
-      avatar: 'images/avatar-turquoise.png',
+      avatar: 'a2',
       password: 'vladberteanu'
     },
     'th': {
       id: 'th',
       name: 'Thiago Correa',
       email: 'th@email.com',
-      avatar: 'images/avatar-blue.png',
+      avatar: 'a3',
       password: 'th'
     }
   };
@@ -32,42 +32,42 @@ module.exports = function(app) {
         id: 'andreisoare',
         name: 'Andrei Soare',
         email: 'andrei@email.com',
-        avatar: 'images/avatar-red.png',
+        avatar: 'a1',
         followed: true
       },
       {
         id: 'vladberteanu',
         name: 'Vlad Berteanu',
         email: 'vlad@email.com',
-        avatar: 'images/avatar-turquoise.png',
+        avatar: 'a2',
         followed: false
       },
       {
         id: 'th',
         name: 'Thiago Correa',
         email: 'th@email.com',
-        avatar: 'images/avatar-blue.png',
+        avatar: 'a3',
         followed: false
       },
       {
         id: 'th1',
         name: 'Thiago 1',
         email: 'th1@email.com',
-        avatar: 'images/avatar-red.png',
+        avatar: 'a4',
         followed: true
       },
       {
         id: 'th2',
         name: 'Thiago 2',
         email: 'th1@email.com',
-        avatar: 'images/avatar-blue.png',
+        avatar: 'a5',
         followed: false
       },
       {
         id: 'th3',
         name: 'Thiago 3',
         email: 'th1@email.com',
-        avatar: 'images/avatar-green.png',
+        avatar: 'a6',
         followed: true
       }
     ]
@@ -79,28 +79,28 @@ module.exports = function(app) {
         id: 'andreisoare',
         name: 'Andrei Soare',
         email: 'andrei@email.com',
-        avatar: 'images/avatar-red.png',
+        avatar: 'a1',
         followed: true
       },
       {
         id: 'vladberteanu',
         name: 'Vlad Berteanu',
         email: 'vlad@email.com',
-        avatar: 'images/avatar-turquoise.png',
+        avatar: 'a2',
         followed: true
       },
       {
         id: 'th',
         name: 'Thiago Correa',
         email: 'th@email.com',
-        avatar: 'images/avatar-blue.png',
+        avatar: 'a3',
         followed: true
       },
       {
         id: 'th1',
         name: 'Thiago 1',
         email: 'th1@email.com',
-        avatar: 'images/avatar-red.png',
+        avatar: 'a4',
         followed: true
       }
     ]
