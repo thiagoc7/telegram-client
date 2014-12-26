@@ -433,3 +433,49 @@ body {
 
 .notify-msn { padding: 10px; }
 .notify-error { padding: 10px; background: rgba(182, 59, 17, 0.90);}
+
+/*spinner*/
+.spinner-container {
+  height: auto;
+  padding: 0px 0px 0px 100px;
+  text-align: center;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.loading {
+  float: left;
+  margin: 11px 0 0 16px;
+  height: 24px;
+  width: 24px;
+  border-radius: 100%;
+  -webkit-animation: spin .5s infinite linear;
+  -moz-animation: spin .5s infinite linear;
+  -o-animation: spin .5s infinite linear;
+  animation: spin .5s infinite linear;
+  border-bottom: 2px solid #178db6;
+  border-left: 2px solid #178db6;
+  border-right: 2px solid transparent;
+  border-top: 2px solid transparent;
+}
+
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+  to { -moz-transform: rotate(360deg); }
+}
+
+@-ms-keyframes spin {
+  to { -ms-transform: rotate(360deg); }
+}
+
+@-o-keyframes spin {
+  to { -o-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

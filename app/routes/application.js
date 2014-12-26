@@ -22,6 +22,14 @@ export default Ember.Route.extend({
     deletePost: function(post) {
       post.destroyRecord();
       this.notify.warning('Deleted');
+    },
+
+    loading: function() {
+      var controller = this.controllerFor('application');
+      controller.spinnerService.startLoading();
+      this.router.one('didTransition', function() {
+        controller.spinnerService.finishLoading();
+      });
     }
   }
 });
