@@ -5,11 +5,10 @@
   <form class="auth-form">
     {{input type="text" value=model.name classNames='auth-input'}}
     {{view "select"
-        classNames='auth-input'
         content=avatars
-        optionValuePath="content.id"
+        optionValuePath="content"
         optionLabelPath="content.name"
-        value=model.avatar.id}}
+        value=model.avatar}}
     <div class="form-footer clearfix">
       <button {{action 'updateUser'}} class="blue-btn submit">
         Update
