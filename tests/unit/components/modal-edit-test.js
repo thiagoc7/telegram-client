@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('modal-popup', 'ModalPopupComponent', {
+moduleForComponent('modal-edit', 'ModalEditComponent', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });

@@ -483,5 +483,6 @@ body {
 /*editing modal*/
 .overlay {
   background-color: rgba(0, 0, 0, 0.2);
+  z-index: 99;
 }
 

@@ -20,6 +20,17 @@ module.exports = function(app) {
   var bodyParser = require('body-parser');
   app.use(bodyParser.json());
 
+  // Delay response to simulate network lag.
+  //app.use(function(req, res, next) {
+  //  var delay = 0;
+  //  if (req.url.indexOf("/api") === 0) {
+  //    delay = 1000;
+  //  }
+  //  setTimeout(function() {
+  //    next();
+  //  }, delay);
+  //});
+
   mocks.forEach(function(route) { route(app); });
   proxies.forEach(function(route) { route(app); });
 

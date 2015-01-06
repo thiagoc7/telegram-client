@@ -1,13 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  //queryParams: {
-  //  dashboard: {
-  //    refreshModel: true
-  //  }
-  //},
-
   model: function() {
-    return this.store.find('post');
+    return this.store.find('post',
+      {
+        dashboard: true,
+        skip: 0, // means what I already have
+        limit: 10 // 10 each time
+      });
   }
 });

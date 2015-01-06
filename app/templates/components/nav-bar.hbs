@@ -13,8 +13,10 @@
   <div class="third">
     <div class="user relative-center-y">
       {{#if userAuthenticated}}
-        <a {{action 'openModal' 'account.edit' userProfile}} class="avatar link"><img {{bind-attr src=userProfile.avatar.url}}></a>
-        {{#link-to 'user' userProfile classNames='name dark-gray-link'}}{{userProfile.name}}{{/link-to}}
+        {{#link-to 'user' userProfile classNames='name dark-gray-link'}}
+          <span class="avatar link"><img {{bind-attr src=userProfile.avatar}}></span>
+          {{userProfile.name}}
+        {{/link-to}}
       {{/if}}
       <a class="logout dark-gray-link">Log out</a>
     </div>

@@ -35,7 +35,24 @@ module.exports = function(app) {
     ]
   };
 
+  //for (var idx = 5; idx <= 50; idx++) {
+  //  POSTS.posts.push({
+  //    id: "p" + idx,
+  //    body: "post " + idx + " body"
+  //    // ...
+  //  });
+  //}
+
   postsRouter.get('/', function(req, res) {
+
+    //var page = parseInt(req.query.page);
+    //var size = parseInt(req.query.size);
+    //var posts = POSTS.slice(page * size, (page + 1) * size);
+    //
+    //var limit = parseInt(req.query.limit);
+    //var skip = parseInt(req.query.skip);
+    //var posts = POSTS.slice(skip, skip + limit);
+
     if (req.query.dashboard) {
       res.send(POSTS);
     } else {

@@ -6,14 +6,21 @@
     <div class="name">{{model.name}}</div>
     <div class="username">@{{model.id}}</div>
 
-    {{#if user.followed}}
-      <button {{action 'unfollow' model}} class="blue-btn follow relative-center-y">
-        Unfollow
+    {{#if ownProfile}}
+      <button {{action 'toogleModal'}} class="blue-btn follow relative-center-y">
+        Edit
       </button>
     {{else}}
-      <button {{action 'follow' model}} class="blue-btn follow relative-center-y">
-        Follow
-      </button>
+
+      {{#if user.followed}}
+        <button {{action 'unfollow' model}} class="blue-btn follow relative-center-y">
+          Unfollow
+        </button>
+      {{else}}
+        <button {{action 'follow' model}} class="blue-btn follow relative-center-y">
+          Follow
+        </button>
+      {{/if}}
     {{/if}}
   </div>
 

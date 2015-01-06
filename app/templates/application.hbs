@@ -1,4 +1,9 @@
 {{loading-spinner}}
-{{outlet 'modal'}}
+
+{{#modal-skeleton}}
+  {{modal-edit model=userSession.user}}
+{{/modal-skeleton}}
+
 {{outlet}}
+
 {{not-ify}}

@@ -14,6 +14,10 @@ export default Ember.Route.extend({
     unfollow: function (user) {
       user.set('followed', false);
       user.save();
+    },
+
+    toogleModal: function () {
+      this.modalService.toogle();
     }
   }
 });
