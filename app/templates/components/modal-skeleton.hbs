@@ -1,7 +1,12 @@
 {{#if isShowing}}
   <div class="auth overlay">
     <div class="rect clearfix">
-      {{yield}}
+      {{dynamic-component
+          type=modal
+          model=model
+          modalAction='modalAction'
+          close='close'
+      }}
     </div>
   </div>
 {{/if}}

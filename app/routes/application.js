@@ -31,6 +31,16 @@ export default Ember.Route.extend({
       this.router.one('didTransition', function() {
         controller.spinnerService.finishLoading();
       });
+    },
+
+    modalAction: function (model) {
+      var route = this;
+      model.save().then(function () {
+        route.set('modalService.isShowing', false);
+        route.notify.success('Saved!');
+      }, function(error) {
+        route.notify.warning(error.responseText);
+      });
     }
   }
 });

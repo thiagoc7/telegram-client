@@ -17,7 +17,7 @@ export default Ember.Route.extend({
     },
 
     toogleModal: function () {
-      this.modalService.toogle();
+      this.modalService.active('modal-user-edit', this.get('session.user'));
     }
   }
 });

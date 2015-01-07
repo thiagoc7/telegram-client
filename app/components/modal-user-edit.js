@@ -25,5 +25,15 @@ export default Ember.Component.extend({
       }
     ];
 
-  }.property('this')
+  }.property('this'),
+
+  actions: {
+    close: function () {
+      this.sendAction('close');
+    },
+
+    modalAction: function () {
+      this.sendAction('modalAction', this.get('model'));
+    }
+  }
 });

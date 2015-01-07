@@ -15,12 +15,12 @@
           optionValuePath="content.url"
           optionLabelPath="content.name"
           value=model.avatar}}
-      <div class="form-footer clearfix">
+      <div {{action 'modalAction'}} class="form-footer clearfix">
         <button class="blue-btn submit">
           Update
         </button>
         <div class="alternatives">
-          <a href="#" class="blue-link">Cancel</a>
+          <a href="#" {{action 'close'}} class="blue-link">Cancel</a>
         </div>
       </div>
     </form>
