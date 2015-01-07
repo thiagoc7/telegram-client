@@ -4,10 +4,6 @@ export default Ember.ArrayController.extend({
   needs: "application",
   userSession: Ember.computed.alias("controllers.application.userSession"),
 
-  limit: 6,
-  skip: 6,
-  hasMore: true,
-
   sortProperties: ['createdAt'],
   sortAscending: false,
 
@@ -17,26 +13,19 @@ export default Ember.ArrayController.extend({
     return (140 - lenght);
   }.property('body'),
 
+  hasMore: function() {
+    var total = this.get('model.meta.total');
+    var currentLength = this.get('model.length');
+    return total > currentLength;
+  }.property('model.meta.total', 'model.[]'),
+
   fetchMoreItems: function () {
     return this.store.find('post',
       {
         dashboard: true,
-        skip: this.get('skip'),
-        limit: this.get('limit')
+        skip: this.get('model.length'),
+        limit: 6
       });
-  },
-
-  internalCallback: function (promise) {
-    var controller = this;
-    promise.then(function (data) {
-      if(data.content.length > 0){
-        controller.set('skip', (controller.get('skip') + controller.get('limit')));
-      }else{
-        controller.set('hasMore', false);
-      }
-    }, function () {
-      controller.set('hasMore', false);
-    });
   },
 
   actions: {
@@ -51,8 +40,9 @@ export default Ember.ArrayController.extend({
       });
 
       var controller = this;
-      post.save().then(function () {
+      post.save().then(function (data) {
         controller.notify.success('Saved!');
+        controller.get('model').pushObject(data);
         controller.set('body', '');
       }, function (error) {
         controller.notify.warning(error.responseText);
@@ -62,7 +52,6 @@ export default Ember.ArrayController.extend({
     fetchMore: function(callback) {
       var promise = this.fetchMoreItems();
       callback(promise);
-      this.internalCallback(promise);
     }
   }
 });

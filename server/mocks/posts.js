@@ -33,7 +33,7 @@ module.exports = function(app) {
       }
   ];
 
-  for (var idx = 5; idx <= 55; idx++) {
+  for (var idx = 5; idx <= 35; idx++) {
     POSTS.push({
       id: "p" + idx,
       author: "th",
@@ -49,12 +49,26 @@ module.exports = function(app) {
       var limit = parseInt(req.query.limit);
       var skip = parseInt(req.query.skip);
       var posts = POSTS.slice(skip, skip + limit);
-      res.send({"posts": posts});
+      res.send(
+        {
+          "posts": posts,
+          "meta": {
+            "total": 35
+          }
+        }
+      );
     } else {
       var page = parseInt(req.query.page);
       var size = parseInt(req.query.size);
       var postsPg = POSTS.slice(page * size, (page + 1) * size);
-      res.send({"posts": postsPg});
+      res.send(
+        {
+          "posts": postsPg,
+          "meta": {
+            "total": 35
+          }
+        }
+      );
     }
   });
 

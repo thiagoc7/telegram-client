@@ -20,14 +20,16 @@ export default Ember.ArrayController.extend({
   }.property('model'),
 
   firstPage: function () {
-    if (this.get('page') === 0) {
-      return true;
-    }
+    return this.get('page') === 0;
   }.property('page'),
 
   displayPage: function () {
-    return (this.get('page') + 1);
+    return this.get('page') + 1;
   }.property('page'),
+
+  totalPages: function () {
+    return Math.round(this.get('model.meta.total') / this.get('size'));
+  }.property('model'),
 
   actions: {
     nextPage: function () {
