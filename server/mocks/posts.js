@@ -33,7 +33,7 @@ module.exports = function(app) {
       }
   ];
 
-  for (var idx = 5; idx <= 50; idx++) {
+  for (var idx = 5; idx <= 55; idx++) {
     POSTS.push({
       id: "p" + idx,
       author: "th",

@@ -3,3 +3,18 @@
     {{post-block post=post deletePost='deletePost' currentUser=userSession.user}}
   {{/each}}
 </div>
+<h5>
+  {{#if firstPage}}
+    <span>first</span>
+  {{else}}
+    <span {{action 'previousPage'}}>previous</span>
+  {{/if}}
+
+  <span> - {{displayPage}} - </span>
+
+  {{#if lastPage}}
+    <span>last</span>
+  {{else}}
+    <span {{action 'nextPage'}}>next</span>
+  {{/if}}
+</h5>
