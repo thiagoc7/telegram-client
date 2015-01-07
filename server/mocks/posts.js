@@ -35,13 +35,15 @@ module.exports = function(app) {
     ]
   };
 
-  //for (var idx = 5; idx <= 50; idx++) {
-  //  POSTS.posts.push({
-  //    id: "p" + idx,
-  //    body: "post " + idx + " body"
-  //    // ...
-  //  });
-  //}
+  for (var idx = 5; idx <= 50; idx++) {
+    POSTS.posts.push({
+      id: "p" + idx,
+      author: "th",
+      body: "post " + idx + " body",
+      createdAt: new Date('2014-02-08T09:30:26'),
+      repostedFrom: null
+    });
+  }
 
   postsRouter.get('/', function(req, res) {
 
