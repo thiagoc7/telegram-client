@@ -27,6 +27,10 @@ export default Ember.Component.extend({
 
     deletePost: function() {
       this.sendAction('deletePost', this.get('post'));
+    },
+
+    editPost: function () {
+      this.modalService.active('modal-post-edit', this.get('post'));
     }
   }
 });

@@ -36,7 +36,13 @@
         {{#if post.repostedFrom}}
           <span>Reposted</span>
         {{else}}
-          <a class="blue-link" {{action 'toggleRepost'}}>Repost</a>
+
+          {{#if owned}}
+            <a class="blue-link" {{action 'editPost'}}>Edit</a>
+          {{else}}
+            <a class="blue-link" {{action 'toggleRepost'}}>Repost</a>
+          {{/if}}
+
         {{/if}}
 
         {{#if owned}}

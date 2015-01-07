@@ -1,1 +1,12 @@
-<h1>post edit</h1>
+<div class="dashboard">
+  <div class="create-post">
+    {{textarea autofocus="autofocus" value=model.body}}
+    <div class="footer clearfix">
+      <div {{action 'close'}} class="characters-left">Cancel</div>
+      <button {{action 'modalAction'}} class="publish dark-gray-btn">
+        Save
+      </button>
+    </div>
+  </div>
+</div>
+

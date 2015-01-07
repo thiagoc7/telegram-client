@@ -29,6 +29,7 @@ export default Ember.Component.extend({
 
   actions: {
     close: function () {
+      this.get('model').rollback();
       this.sendAction('close');
     },
 
