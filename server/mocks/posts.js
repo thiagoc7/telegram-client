@@ -2,8 +2,7 @@ module.exports = function(app) {
   var express = require('express');
   var postsRouter = express.Router();
 
-  var POSTS = {
-    "posts": [
+  var POSTS = [
       {
         id: "p1",
         author: "andreisoare",
@@ -32,11 +31,10 @@ module.exports = function(app) {
         createdAt: new Date('2014-02-08T09:30:26'),
         repostedFrom: null
       }
-    ]
-  };
+  ];
 
   for (var idx = 5; idx <= 50; idx++) {
-    POSTS.posts.push({
+    POSTS.push({
       id: "p" + idx,
       author: "th",
       body: "post " + idx + " body",
@@ -47,18 +45,16 @@ module.exports = function(app) {
 
   postsRouter.get('/', function(req, res) {
 
-    //var page = parseInt(req.query.page);
-    //var size = parseInt(req.query.size);
-    //var posts = POSTS.slice(page * size, (page + 1) * size);
-    //
-    //var limit = parseInt(req.query.limit);
-    //var skip = parseInt(req.query.skip);
-    //var posts = POSTS.slice(skip, skip + limit);
-
     if (req.query.dashboard) {
-      res.send(POSTS);
+      var limit = parseInt(req.query.limit);
+      var skip = parseInt(req.query.skip);
+      var posts = POSTS.slice(skip, skip + limit);
+      res.send({"posts": posts});
     } else {
-      res.send(POSTS);
+      var page = parseInt(req.query.page);
+      var size = parseInt(req.query.size);
+      var postsPg = POSTS.slice(page * size, (page + 1) * size);
+      res.send({"posts": postsPg});
     }
   });
 

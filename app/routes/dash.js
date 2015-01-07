@@ -13,7 +13,7 @@ export default Ember.Route.extend({
       {
         dashboard: true,
         skip: 0, // means what I already have
-        limit: 10 // 10 each time
+        limit: 6 // 10 each time
       });
   }
 });
