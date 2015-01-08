@@ -1,9 +1,12 @@
 {
-  "predef": [
-    "document",
-    "window",
-    "-Promise"
-  ],
+  "predef": {
+    "document": true,
+    "window": true,
+    "-Promise": true,
+    "WowENV": true,
+    "datepicker": true,
+    "moment": true
+  },
   "browser": true,
   "boss": true,
   "curly": true,

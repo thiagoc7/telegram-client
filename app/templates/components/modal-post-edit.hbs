@@ -1,12 +1,17 @@
-<div class="dashboard">
-  <div class="create-post">
-    {{textarea autofocus="autofocus" value=model.body}}
-    <div class="footer clearfix">
-      <div {{action 'close'}} class="characters-left">Cancel</div>
-      <button {{action 'modalAction'}} class="publish dark-gray-btn">
-        Save
-      </button>
-    </div>
+<div class="content">
+  <div class="dashboard">
+    <form class="auth-form">
+      {{textarea autofocus="autofocus" value=model.body classNames='auth-input'}}
+      <div class="form-footer clearfix">
+        <button {{action 'modalAction'}} class="blue-btn submit">
+          Save
+        </button>
+        <div class="alternatives">
+          <a {{action 'close'}} href="#" class="blue-link">Cancel</a>
+        </div>
+      </div>
+    </form>
+      {{date-picker value=model.createdAt classNames='auth-input'}}
   </div>
 </div>
 
