@@ -1,0 +1,14 @@
+{{#modal-base title="Edit Your Account" ok='editAccount' close='closeUserModal'}}
+  <img class="postmark" src="images/postmark.png"/>
+  <div class="clear"></div>
+  <div class="content">
+    <form class="auth-form">
+      {{input type="text" value=model.name classNames='auth-input'}}
+      {{view "select"
+      content=avatarList
+      optionValuePath="content.url"
+      optionLabelPath="content.name"
+      value=model.avatar}}
+    </form>
+  </div>
+{{/modal-base}}

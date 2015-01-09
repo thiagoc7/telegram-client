@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Ember.Controller.extend({
   avatarList: function () {
     return [
       {
@@ -24,17 +24,21 @@ export default Ember.Component.extend({
         url: 'images/avatar-yellow.png'
       }
     ];
-
   }.property('this'),
 
   actions: {
-    close: function () {
-      this.get('model').rollback();
-      this.sendAction('close');
+    editAccount: function () {
+      var controller = this;
+      this.get('model').save().then(function () {
+        controller.notify.success('Edited!');
+      }, function (error) {
+        controller.notify.warning(error.responseText);
+      });
     },
 
-    modalAction: function () {
-      this.sendAction('modalAction', this.get('model'));
+    closeUserModal: function () {
+      this.get('model').rollback();
+      this.send('removeModal');
     }
   }
 });

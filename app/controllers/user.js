@@ -6,5 +6,11 @@ export default Ember.ObjectController.extend({
 
   ownProfile: function () {
     return (this.get('model') === this.get('session.user'));
-  }.property('model')
+  }.property('model'),
+
+  actions: {
+    showUserModal: function () {
+      this.send('showModal', 'user/modal', this.get('session.user'));
+    }
+  }
 });

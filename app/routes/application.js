@@ -39,13 +39,17 @@ export default Ember.Route.extend({
       });
     },
 
-    modalAction: function (model) {
-      var route = this;
-      model.save().then(function () {
-        route.set('modalService.isShowing', false);
-        route.notify.success('Saved!');
-      }, function(error) {
-        route.notify.warning(error.responseText);
+    showModal: function(name, model) {
+      this.render(name, {
+        into: 'application',
+        outlet: 'modal',
+        model: model
+      });
+    },
+    removeModal: function() {
+      this.disconnectOutlet({
+        outlet: 'modal',
+        parentView: 'application'
       });
     }
   }

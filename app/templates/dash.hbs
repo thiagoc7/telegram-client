@@ -15,7 +15,7 @@
 
   <div class="posts-list">
     {{#each post in controller}}
-      {{post-block post=post repost="repost" deletePost='deletePost' currentUser=userSession.user pushArray='dash'}}
+      {{post-block post=post showModal='showModal' repost="repost" deletePost='deletePost' currentUser=userSession.user pushArray='dash'}}
     {{/each}}
     {{#infinite-scroll content=model hasMore=hasMore}}
       <span>Loading...</span>
