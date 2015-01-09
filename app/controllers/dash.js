@@ -19,15 +19,6 @@ export default Ember.ArrayController.extend({
     return total > currentLength;
   }.property('model.meta.total', 'model.[]'),
 
-  fetchMoreItems: function () {
-    return this.store.find('post',
-      {
-        dashboard: true,
-        skip: this.get('model.length'),
-        limit: 6
-      });
-  },
-
   actions: {
     savePost: function () {
       if (this.get('characters') === 140) {
@@ -50,7 +41,12 @@ export default Ember.ArrayController.extend({
     },
 
     fetchMore: function(callback) {
-      var promise = this.fetchMoreItems();
+      var promise = this.store.find('post',
+        {
+          dashboard: true,
+          skip: this.get('model.length'),
+          limit: 6
+        });
       callback(promise);
     }
   }

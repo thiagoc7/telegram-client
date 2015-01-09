@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  pushArray: 'dash',
+
   authorDisplay: function () {
     var post = this.get('post');
     var repost = this.get('post.repostedFrom');
@@ -21,12 +23,12 @@ export default Ember.Component.extend({
     },
 
     confirmRepost: function() {
-      this.sendAction('repost', this.get('post'));
+      this.sendAction('repost', this.get('post'), this.get('pushArray'));
       this.toggleProperty('isReposting');
     },
 
     deletePost: function() {
-      this.sendAction('deletePost', this.get('post'));
+      this.sendAction('deletePost', this.get('post'), this.get('pushArray'));
     },
 
     editPost: function () {

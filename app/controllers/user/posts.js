@@ -7,8 +7,7 @@ export default Ember.ArrayController.extend({
   sortProperties: ['createdAt'],
   sortAscending: false,
 
-  queryParams: ['dashboard', 'page', 'size'],
-  dashboard: null,
+  queryParams: ['page', 'size'],
   page: 0,
   size: 10,
 
@@ -17,7 +16,7 @@ export default Ember.ArrayController.extend({
     if (length < this.get('size')) {
       return true;
     }
-  }.property('model'),
+  }.property('model.[]', 'size'),
 
   firstPage: function () {
     return this.get('page') === 0;
@@ -29,7 +28,7 @@ export default Ember.ArrayController.extend({
 
   totalPages: function () {
     return Math.round(this.get('model.meta.total') / this.get('size'));
-  }.property('model'),
+  }.property('model.meta.total', 'size'),
 
   actions: {
     nextPage: function () {

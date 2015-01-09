@@ -25,7 +25,6 @@ export default Ember.Component.extend({
     );
 
     var component = this;
-    this.set('_picker', picker);
     picker.on('changeDate', function(event) {
       Ember.run(function () {
         component.newDate(event);
@@ -40,5 +39,6 @@ export default Ember.Component.extend({
   // TODO check why can' user enter key
   newDate: function (e) {
     this.set('value', e.date);
+    this.$().val(this.get('displayDate'));
   }
 });

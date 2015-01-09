@@ -57,7 +57,7 @@ module.exports = function(app) {
           }
         }
       );
-    } else {
+    } else if (req.query.userId) {
       var page = parseInt(req.query.page);
       var size = parseInt(req.query.size);
       var postsPg = POSTS.slice(page * size, (page + 1) * size);
@@ -69,6 +69,8 @@ module.exports = function(app) {
           }
         }
       );
+    } else {
+      res.status(404).send("need params");
     }
   });
 
@@ -78,6 +80,7 @@ module.exports = function(app) {
     } else {
       res.send({
         post: {
+          id: 'p36',
           body: req.body.post.body,
           author: req.body.post.author
         }
