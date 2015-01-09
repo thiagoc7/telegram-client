@@ -29,7 +29,8 @@ export default Ember.Controller.extend({
   actions: {
     editAccount: function () {
       var controller = this;
-      this.get('model').save().then(function () {
+      var model = this.get('model');
+      model.save().then(function () {
         controller.notify.success('Edited!');
       }, function (error) {
         controller.notify.warning(error.responseText);
