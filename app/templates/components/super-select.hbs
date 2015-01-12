@@ -1,0 +1,13 @@
+{{input value=inputText classNames='select-input'}}
+
+{{#if inputIsFocused}}
+  <ul class="dropdown">
+    {{#each result in resultList}}
+      <li><a {{action 'selectItem' result}}>{{result.name}}</a></li>
+    {{/each}}
+
+    {{#if activeCreation}}
+      <li><a {{action 'createItem'}}>+ Create new: {{inputText}}</a></li>
+    {{/if}}
+  </ul>
+{{/if}}

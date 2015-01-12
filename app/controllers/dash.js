@@ -6,6 +6,31 @@ export default Ember.ArrayController.extend({
   sortProperties: ['createdAt'],
   sortAscending: false,
 
+  selectList: function () {
+    return [
+      {
+        name: 'blue',
+        id: 1
+      },
+      {
+        name: 'green',
+        id: 2
+      },
+      {
+        name: 'orange',
+        id: 2
+      },
+      {
+        name: 'turquoise',
+        id: 4
+      },
+      {
+        name: 'yellow',
+        id: 5
+      }
+    ];
+  }.property('this'),
+
   body: '',
   characters: function() {
     var lenght = this.get('body').length;
