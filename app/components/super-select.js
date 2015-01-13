@@ -5,28 +5,17 @@ export default Ember.Component.extend({
   inputIsFocused: false,
 
   inputText: '',
-  selected: null,
-
-  focusIn: function () {
-    this.set('inputIsFocused', true);
-  },
-
-  focusOut: function () {
-    this.set('inputIsFocused', false);
-  },
-
-  click: function () {
-    this.set('inputIsFocused', true);
-  },
+  selectedItem: null,
+  activeItem: null,
 
   placeholder: 'select options',
   label: function () {
-    if (this.get('selected')) {
-      return this.get('selected.name');
+    if (this.get('selectedItem')) {
+      return this.get('selectedItem.object.name');
     } else {
       return this.get('placeholder');
     }
-  }.property('selected'),
+  }.property('selectedItem'),
 
   formatedList: function () {
     return this.get('content').map(function(object) {
@@ -54,37 +43,43 @@ export default Ember.Component.extend({
 
   actions: {
     selectItem: function (item) {
-      this.setSelected(item);
-      alert(this.get('selectedIndex'));
-      this.set('inputIsFocused', false);
+      this.setActiveItem(item);
+      this.chooseActive();
     },
 
     createItem: function () {
       this.set('inputIsFocused', false);
+    },
+
+    openSelect: function () {
+      this.set('inputIsFocused', true);
+      this.$('.select-input').focus();
     }
   },
 
   selectedIndex: function() {
-    return this.get('content').indexOf(this.get('selected'));
-  }.property('selected'),
+    var selectedItemIndex = this.get('resultList').indexOf(this.get('selectedItem'));
+    var length = this.get('resultList').get('length');
+    if (selectedItemIndex && length > 0 && selectedItemIndex <= length) {
+      return selectedItemIndex;
+    } else {
+      return -1;
+    }
+  }.property('selectedItem', 'resultList.[]'),
 
-  selectedIndexFiltered: function() {
-    return this.get('resultList').indexOf(this.get('selected'));
-  }.property('selected'),
-
-  clearList: function () {
+  setActiveItem: function (item) {
     var originalList = this.get('formatedList');
     var cleanList = originalList.map(function(object) {
       return object.set('active', false);
     });
     this.set('formatedList', cleanList);
+    item.set('active', true);
+    this.set('activeItem', item);
   },
 
-  setSelected: function (item) {
-    this.clearList();
-    item.set('active', true); //testing
-    this.set('selected', item.object);
-    //this.set('inputText', item.object.name);
+  chooseActive: function () {
+    this.set('selectedItem', this.get('activeItem'));
+    this.set('inputIsFocused', false);
   },
 
   navigateOnKeyDown: function(event) {
@@ -94,18 +89,19 @@ export default Ember.Component.extend({
         break;
 
       case 38: //up-arrow
-        var index = this.get('selectedIndex') - 1;
-        var item = this.get('resultList').objectAt(index);
-        this.setSelected(item);
+        var indexUp = this.get('selectedIndex') - 1;
+        var itemUp = this.get('resultList').objectAt(indexUp);
+        this.setActiveItem(itemUp);
         break;
 
       case 40: //down-arrow
-        var index = this.get('selectedIndex') + 1;
-        var item = this.get('resultList').objectAt(index);
-        this.setSelected(item);
+        var indexDown = this.get('selectedIndex') + 1;
+        var itemDown = this.get('resultList').objectAt(indexDown);
+        this.setActiveItem(itemDown);
         break;
 
       case 13: //enter
+        this.chooseActive();
         break;
     }
   }.on('keyDown')
