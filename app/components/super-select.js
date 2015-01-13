@@ -7,13 +7,26 @@ export default Ember.Component.extend({
   inputText: '',
   selected: null,
 
-  selectedIndex: function() {
-    return this.get('content').indexOf(this.get('selected'));
-  }.property('selected'),
-
   focusIn: function () {
     this.set('inputIsFocused', true);
   },
+
+  focusOut: function () {
+    this.set('inputIsFocused', false);
+  },
+
+  click: function () {
+    this.set('inputIsFocused', true);
+  },
+
+  placeholder: 'select options',
+  label: function () {
+    if (this.get('selected')) {
+      return this.get('selected.name');
+    } else {
+      return this.get('placeholder');
+    }
+  }.property('selected'),
 
   formatedList: function () {
     return this.get('content').map(function(object) {
@@ -41,9 +54,8 @@ export default Ember.Component.extend({
 
   actions: {
     selectItem: function (item) {
-      item.set('active', true); //testing
-      this.set('selected', item.object);
-      this.set('inputText', item.object.name);
+      this.setSelected(item);
+      alert(this.get('selectedIndex'));
       this.set('inputIsFocused', false);
     },
 
@@ -52,30 +64,49 @@ export default Ember.Component.extend({
     }
   },
 
+  selectedIndex: function() {
+    return this.get('content').indexOf(this.get('selected'));
+  }.property('selected'),
+
+  selectedIndexFiltered: function() {
+    return this.get('resultList').indexOf(this.get('selected'));
+  }.property('selected'),
+
+  clearList: function () {
+    var originalList = this.get('formatedList');
+    var cleanList = originalList.map(function(object) {
+      return object.set('active', false);
+    });
+    this.set('formatedList', cleanList);
+  },
+
+  setSelected: function (item) {
+    this.clearList();
+    item.set('active', true); //testing
+    this.set('selected', item.object);
+    //this.set('inputText', item.object.name);
+  },
+
   navigateOnKeyDown: function(event) {
-    var handled = false;
     switch(event.keyCode) {
       case 27: //esc
         this.set('inputIsFocused', false);
-        handled = true;
         break;
 
       case 38: //up-arrow
-        handled = true;
+        var index = this.get('selectedIndex') - 1;
+        var item = this.get('resultList').objectAt(index);
+        this.setSelected(item);
         break;
 
       case 40: //down-arrow
         var index = this.get('selectedIndex') + 1;
-        this.get('formatedList').objectAt(index).$().click();
-        handled = true;
+        var item = this.get('resultList').objectAt(index);
+        this.setSelected(item);
         break;
 
       case 13: //enter
-        handled = true;
         break;
-    }
-    if(handled) {
-      event.preventDefault();
     }
   }.on('keyDown')
 });

@@ -1,6 +1,5 @@
-{{input value=inputText classNames='select-input'}}
-
 {{#if inputIsFocused}}
+  {{input value=inputText classNames='select-input'}}
   <ul class="dropdown">
     {{#each result in resultList}}
       <li {{bind-attr class="result.active:active"}}><a {{action 'selectItem' result}}>{{result.object.name}}</a></li>
@@ -10,4 +9,7 @@
       <li class="active"><a {{action 'createItem'}}>+ new: {{inputText}}</a></li>
     {{/if}}
   </ul>
+
+{{else}}
+  <label for="#">{{label}}</label>
 {{/if}}
