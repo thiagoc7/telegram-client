@@ -9,6 +9,7 @@ export default Ember.Controller.extend({
       }, function (error) {
         controller.notify.warning(error.responseText);
       });
+      this.send('removeModal');
     },
 
     closeModal: function () {

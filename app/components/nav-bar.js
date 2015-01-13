@@ -7,5 +7,11 @@ export default Ember.Component.extend({
 
   userAuthenticated: function() {
     return this.get('session.isAuthenticated');
-  }.property('session')
+  }.property('session'),
+
+  actions: {
+    logOut: function () {
+      this.sendAction('logOut');
+    }
+  }
 });

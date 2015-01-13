@@ -8,7 +8,7 @@ module.exports = function(app) {
         author: "andreisoare",
         body: "post 1 body",
         createdAt: new Date('2014-12-08T09:30:26'),
-        repostedFrom: null
+        repostedFrom: 'p2'
       },
       {
         id: "p2",
@@ -89,18 +89,20 @@ module.exports = function(app) {
   });
 
   postsRouter.get('/:id', function(req, res) {
-    res.send({
-      "posts": {
-        "id": req.params.id
-      }
-    });
+    var responseObj = {};
+    if(req.params.id in POSTS){
+      responseObj.account = POSTS[req.params.id];
+      res.send(responseObj);
+    } else {
+      res.status(404).end();
+    }
   });
 
   postsRouter.put('/:id', function(req, res) {
+    var post = req.body.post;
+    post.id = req.params.id;
     res.send({
-      "posts": {
-        "id": req.params.id
-      }
+      "post": post
     });
   });
 

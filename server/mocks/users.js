@@ -177,10 +177,10 @@ module.exports = function(app) {
   });
 
   usersRouter.put('/:id', function(req, res) {
+    var user = req.body.user;
+    user.id = req.params.id;
     res.send({
-      "users": {
-        "id": req.params.id
-      }
+      "user": user
     });
   });
 

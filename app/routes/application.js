@@ -4,11 +4,15 @@ export default Ember.Route.extend({
 
   actions: {
     repost: function(repost, pushArray) {
+      var repostedFrom = repost;
+      var original = repost.get('repostedFrom');
+      if (original) { repostedFrom = original; }
+
       var post = this.store.createRecord('post', {
         author: this.get('session.user'),
         body: repost.get('body'),
         createdAt: new Date(),
-        repostedFrom: repost
+        repostedFrom: repostedFrom
       });
 
       var route = this;
@@ -51,6 +55,11 @@ export default Ember.Route.extend({
         outlet: 'modal',
         parentView: 'application'
       });
+    },
+
+    logOut: function () {
+      this.set('session.user', null);
+      this.transitionTo('application');
     }
   }
 });

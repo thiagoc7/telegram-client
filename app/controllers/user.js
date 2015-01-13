@@ -9,7 +9,7 @@ export default Ember.ObjectController.extend({
 
   actions: {
     showUserModal: function () {
-      this.send('showModal', 'user/modal', this.get('session.user'));
+      this.send('showModal', 'user/edit-modal', this.get('session.user'));
     }
   }
 });

@@ -36,7 +36,7 @@ export default Ember.Component.extend({
     },
 
     showModal: function () {
-      this.sendAction('showModal', 'dash/modal', this.get('post'));
+      this.sendAction('showModal', 'dash/edit-post-modal', this.get('post'));
     }
   }
 });

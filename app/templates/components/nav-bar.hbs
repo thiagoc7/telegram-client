@@ -17,7 +17,7 @@
           <span class="avatar link"><img {{bind-attr src=userProfile.avatar}}></span>
           {{userProfile.name}}
         {{/link-to}}
-        <a class="logout dark-gray-link">Log out</a>
+        <a class="logout dark-gray-link" {{action 'logOut'}}>Log out</a>
       {{/if}}
     </div>
   </div>

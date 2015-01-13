@@ -482,18 +482,28 @@ body {
 
 /*select*/
 .select-wrapper {
-
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #000;
+  width: 200px;
 }
 
 .select-input {
-
+  position: relative;
+  border: 1px solid #000;
+  width: auto;
 }
 
 .select-wrapper .dropdown {
-
+  /*display: none;*/
+  position: absolute;
+  border: 1px solid #000; /*Needs to be removed from default styles*/
+  left: 0;
+  right: 0;
+  background: #f5f5f5;
 }
 
-.select-wrapper .dropdown li {
-
+.select-wrapper .dropdown .active {
+  background: #d0d0d0;
 }
-

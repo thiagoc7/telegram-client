@@ -1,0 +1,18 @@
+{{#modal-base title="Edit Post" removeModal='removeModal'}}
+  <div class="content">
+    <div class="dashboard">
+      <form class="auth-form">
+        {{textarea autofocus="autofocus" value=model.body classNames='auth-input'}}
+        {{date-picker value=model.createdAt classNames='auth-input'}}
+        <div {{action 'editPost'}} class="form-footer clearfix">
+          <button class="blue-btn submit">
+            Update
+          </button>
+          <div class="alternatives">
+            <a href="#" {{action 'closeModal'}} class="blue-link">Cancel</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{{/modal-base}}

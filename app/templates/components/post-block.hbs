@@ -45,7 +45,11 @@
         <span class="middot">&middot;</span>
 
         {{#if post.repostedFrom}}
-          <span>Reposted</span>
+          {{#if owned}}
+            <span>Reposted</span>
+          {{else}}
+            <a class="blue-link" {{action 'toggleRepost'}}>Repost</a>
+          {{/if}}
         {{else}}
 
           {{#if owned}}
