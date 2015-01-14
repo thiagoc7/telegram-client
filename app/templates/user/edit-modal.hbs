@@ -28,10 +28,8 @@
 
                 {{super-select
                     content=moodList
-                    optionValuePath="content"
-                    optionLabelPath="content.name"
-                    value=model.mood
-                }}
+                    contentDisplay="name"
+                    value=model.mood}}
 
                 <div {{action 'editAccount'}} class="form-footer clearfix">
                   <button class="blue-btn submit">

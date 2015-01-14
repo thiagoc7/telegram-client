@@ -6,29 +6,21 @@ export default Ember.Component.extend({
 
   inputText: '',
   activeCreate: true,
-  selectedItem: null,
   activeItem: null,
   action: 'createOption',
 
   attributeBindings: ['value'],
 
-  setNewValue: function () {
-    this.set('value', this.get('selectedItem.object'));
-  }.observes('selectedItem'),
-
-  setOriginalValue: function () {
-    // problems
-  }.on('init'),
-
   placeholder: 'select options',
 
   label: function () {
-    if (this.get('selectedItem')) {
-      return this.get('selectedItem.object.name');
+    if (this.get('value') !== null) {
+      var value = this.get('value');
+      return value.get('id') + '- ' + value.get('name');
     } else {
       return this.get('placeholder');
     }
-  }.property('selectedItem'),
+  }.property('value', 'placeholder'),
 
   formatedList: function () {
     return this.get('content').map(function(object) {
@@ -40,9 +32,10 @@ export default Ember.Component.extend({
   }.property('content.[]'),
 
   resultList: function () {
+    var component = this;
     var text = this.get('inputText');
     return this.get('formatedList').filter(function(item) {
-      if (item.object.get('name').search(text) >= 0) { return true; }
+      if (item.object.get(component.get('contentDisplay')).search(text) >= 0) { return true; }
     });
   }.property('formatedList.[]', 'inputText'),
 
@@ -103,7 +96,7 @@ export default Ember.Component.extend({
         this.get('activeItem').object.text,
         Ember.run.bind(this, this.handleCreation));
     } else {
-      this.set('selectedItem', this.get('activeItem'));
+      this.set('value', this.get('activeItem.object'));
       this.set('inputIsFocused', false);
     }
   },
