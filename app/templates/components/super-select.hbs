@@ -4,10 +4,6 @@
     {{#each result in resultList}}
       <li {{bind-attr class="result.active:active"}}><a {{action 'selectItem' result}}>{{result.object.name}}</a></li>
     {{/each}}
-
-    {{#if activeCreation}}
-      <li class="active"><a {{action 'createItem'}}>+ new: {{inputText}}</a></li>
-    {{/if}}
   </ul>
 
 {{else}}
