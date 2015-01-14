@@ -26,6 +26,10 @@ export default Ember.Controller.extend({
     ];
   }.property('this'),
 
+  moodList: function () {
+    return this.store.find('mood');
+  }.property('this'),
+
   actions: {
     editAccount: function () {
       var controller = this;
@@ -41,6 +45,13 @@ export default Ember.Controller.extend({
     closeUserModal: function () {
       this.get('model').rollback();
       this.send('removeModal');
+    },
+
+    createOption: function (text, callback) {
+      var mood = this.store.createRecord('mood', {
+        name: text
+      }).save();
+      callback(mood);
     }
   }
 });

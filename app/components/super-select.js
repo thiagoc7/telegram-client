@@ -5,8 +5,20 @@ export default Ember.Component.extend({
   inputIsFocused: false,
 
   inputText: '',
+  activeCreate: true,
   selectedItem: null,
   activeItem: null,
+  action: 'createOption',
+
+  attributeBindings: ['value'],
+
+  setNewValue: function () {
+    this.set('value', this.get('selectedItem.object'));
+  }.observes('selectedItem'),
+
+  setOriginalValue: function () {
+    // problems
+  }.on('init'),
 
   placeholder: 'select options',
 
@@ -30,16 +42,16 @@ export default Ember.Component.extend({
   resultList: function () {
     var text = this.get('inputText');
     return this.get('formatedList').filter(function(item) {
-      if (item.object.name.search(text) >= 0) { return true; }
+      if (item.object.get('name').search(text) >= 0) { return true; }
     });
   }.property('formatedList.[]', 'inputText'),
 
   activeCreation: function () {
+    if (!this.get('activeCreate')) { return; }
     var text = this.get('inputText');
     var result = this.get('content').filter(function(item) {
       if (item.name === text) { return true; }
     });
-    //return result.length === 0 && text !== '';
     if (result.length === 0 && text !== '') {
       var object = Ember.Object.create({
         name: '+ new: ' + text,
@@ -87,10 +99,24 @@ export default Ember.Component.extend({
 
   chooseActive: function () {
     if (this.get('activeItem').object.newObject) {
-      alert ('new');
+      this.sendAction('action',
+        this.get('activeItem').object.text,
+        Ember.run.bind(this, this.handleCreation));
+    } else {
+      this.set('selectedItem', this.get('activeItem'));
+      this.set('inputIsFocused', false);
     }
-    this.set('selectedItem', this.get('activeItem'));
-    this.set('inputIsFocused', false);
+  },
+
+  handleCreation: function (promise) {
+    var component = this;
+    promise.then(function (data) {
+      component.set('activeItem.object', data);
+      component.chooseActive();
+    }, function (error) {
+      component.set('activeItem', null);
+      component.notify.warning(error.responseText);
+    });
   },
 
   navigateOnKeyDown: function(event) {

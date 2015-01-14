@@ -8,12 +8,14 @@ module.exports = function(app) {
       name: 'Andrei Soare',
       email: 'andrei@email.com',
       avatar: 'images/avatar-red.png',
+      mood: '1',
       password: 'andreisoare'
     },
     'vladberteanu': {
       id: 'vladberteanu',
       name: 'Vlad Berteanu',
       email: 'vlad@email.com',
+      mood: '1',
       avatar: 'images/avatar-turquoise.png',
       password: 'vladberteanu'
     },
@@ -21,6 +23,7 @@ module.exports = function(app) {
       id: 'th',
       name: 'Thiago Correa',
       email: 'th@email.com',
+      mood: '1',
       avatar: 'images/avatar-blue.png',
       password: 'th'
     }
@@ -32,6 +35,7 @@ module.exports = function(app) {
         id: 'andreisoare',
         name: 'Andrei Soare',
         email: 'andrei@email.com',
+        mood: '1',
         avatar: 'images/avatar-red.png',
         followed: true
       },
@@ -39,6 +43,7 @@ module.exports = function(app) {
         id: 'vladberteanu',
         name: 'Vlad Berteanu',
         email: 'vlad@email.com',
+        mood: '1',
         avatar: 'images/avatar-turquoise.png',
         followed: false
       },
@@ -46,6 +51,7 @@ module.exports = function(app) {
         id: 'th',
         name: 'Thiago Correa',
         email: 'th@email.com',
+        mood: '1',
         avatar: 'images/avatar-blue.png',
         followed: false
       },
@@ -53,6 +59,7 @@ module.exports = function(app) {
         id: 'th1',
         name: 'Thiago 1',
         email: 'th1@email.com',
+        mood: '1',
         avatar: 'images/avatar-red.png',
         followed: true
       },
@@ -60,6 +67,7 @@ module.exports = function(app) {
         id: 'th2',
         name: 'Thiago 2',
         email: 'th1@email.com',
+        mood: '1',
         avatar: 'images/avatar-blue.png',
         followed: false
       },
@@ -67,6 +75,7 @@ module.exports = function(app) {
         id: 'th3',
         name: 'Thiago 3',
         email: 'th1@email.com',
+        mood: '1',
         avatar: 'images/avatar-green.png',
         followed: true
       }
@@ -79,6 +88,7 @@ module.exports = function(app) {
         id: 'andreisoare',
         name: 'Andrei Soare',
         email: 'andrei@email.com',
+        mood: '1',
         avatar: 'images/avatar-red.png',
         followed: true
       },
@@ -86,6 +96,7 @@ module.exports = function(app) {
         id: 'vladberteanu',
         name: 'Vlad Berteanu',
         email: 'vlad@email.com',
+        mood: '1',
         avatar: 'images/avatar-turquoise.png',
         followed: true
       },
@@ -93,6 +104,7 @@ module.exports = function(app) {
         id: 'th',
         name: 'Thiago Correa',
         email: 'th@email.com',
+        mood: '1',
         avatar: 'images/avatar-blue.png',
         followed: true
       },
@@ -100,6 +112,7 @@ module.exports = function(app) {
         id: 'th1',
         name: 'Thiago 1',
         email: 'th1@email.com',
+        mood: '1',
         avatar: 'images/avatar-red.png',
         followed: true
       }

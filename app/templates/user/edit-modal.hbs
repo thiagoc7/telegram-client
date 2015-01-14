@@ -19,11 +19,20 @@
               </div>
               <form class="auth-form">
                 {{input type="text" value=model.name classNames='auth-input'}}
+
                 {{view "select"
                 content=avatarList
                 optionValuePath="content.url"
                 optionLabelPath="content.name"
                 value=model.avatar}}
+
+                {{super-select
+                    content=moodList
+                    optionValuePath="content"
+                    optionLabelPath="content.name"
+                    value=model.mood
+                }}
+
                 <div {{action 'editAccount'}} class="form-footer clearfix">
                   <button class="blue-btn submit">
                     Update
