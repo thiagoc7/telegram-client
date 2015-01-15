@@ -68,8 +68,12 @@ export default Ember.Component.extend({
 
     openSelect: function () {
       this.set('inputIsFocused', true);
-      this.$('.select-input').focus();
+      Ember.run.scheduleOnce('afterRender', this, this.focusInput);
     }
+  },
+
+  focusInput: function () {
+    this.$().find('.select-input').focus();
   },
 
   activeIndex: function() {
@@ -147,6 +151,7 @@ export default Ember.Component.extend({
         return false;
 
       case 13: //enter
+        event.preventDefault();
         this.chooseActive();
         return false;
     }

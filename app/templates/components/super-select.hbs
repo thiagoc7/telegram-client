@@ -7,5 +7,7 @@
   </ul>
 
 {{else}}
-  <label for="#" {{action 'openSelect'}}>{{label}}</label>
+  <div {{action 'openSelect'}}>
+    <label for="#">{{label}}</label>
+  </div>
 {{/if}}
